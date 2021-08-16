@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="274" id="KGk-i7-Jjw" customClass="DayTableCell" customModule="Calendar" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="536" height="274"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="536" height="274"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="B7x-gE-Zkp">
+                        <rect key="frame" x="19" y="20" width="496" height="234"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="c80-SR-y3w">
+                                <rect key="frame" x="0.0" y="0.0" width="40.5" height="43.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="MON" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bjE-Id-gdN">
+                                        <rect key="frame" x="0.0" y="0.0" width="40.5" height="16.5"/>
+                                        <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
+                                        <color key="textColor" name="7B7E91"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ows-U8-6u9">
+                                        <rect key="frame" x="0.0" y="21.5" width="40.5" height="22"/>
+                                        <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
+                                        <color key="textColor" name="1E0A3C"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="A1P-ut-JuB" customClass="SelfResizeTableView" customModule="Calendar" customModuleProvider="target">
+                                <rect key="frame" x="56.5" y="0.0" width="439.5" height="234"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="-1" id="hJo-4n-i5a"/>
+                                    <outlet property="delegate" destination="-1" id="xWN-0d-I6u"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="A1P-ut-JuB" secondAttribute="bottom" id="Pa2-m1-hdQ"/>
+                            <constraint firstItem="c80-SR-y3w" firstAttribute="leading" secondItem="B7x-gE-Zkp" secondAttribute="leading" id="hZM-Vh-C21"/>
+                        </constraints>
+                    </stackView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wwc-uC-ApZ">
+                        <rect key="frame" x="0.0" y="273.5" width="536" height="0.5"/>
+                        <color key="backgroundColor" red="0.46274509803921571" green="0.46274509803921571" blue="0.46274509803921571" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="hfZ-4q-L1O"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="Wwc-uC-ApZ" secondAttribute="bottom" id="7Qj-DJ-ali"/>
+                    <constraint firstAttribute="bottom" secondItem="B7x-gE-Zkp" secondAttribute="bottom" constant="20" id="CEL-QE-5ax"/>
+                    <constraint firstItem="B7x-gE-Zkp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="Ehk-1m-TWV"/>
+                    <constraint firstItem="B7x-gE-Zkp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="19" id="JCB-ST-iND"/>
+                    <constraint firstAttribute="trailing" secondItem="Wwc-uC-ApZ" secondAttribute="trailing" id="JwM-XO-Vfx"/>
+                    <constraint firstAttribute="trailing" secondItem="B7x-gE-Zkp" secondAttribute="trailing" constant="21" id="WaA-pH-rko"/>
+                    <constraint firstItem="Wwc-uC-ApZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="uE2-GT-bQO"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="dayNameLabel" destination="bjE-Id-gdN" id="LzJ-Ks-yUv"/>
+                <outlet property="dayNumberLabel" destination="Ows-U8-6u9" id="dsy-vb-dVa"/>
+                <outlet property="tableView" destination="A1P-ut-JuB" id="sbb-q8-0VC"/>
+            </connections>
+            <point key="canvasLocation" x="-126.08695652173914" y="170.08928571428569"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="1E0A3C">
+            <color red="0.11800000071525574" green="0.039000000804662704" blue="0.23499999940395355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="7B7E91">
+            <color red="0.48199999332427979" green="0.49399998784065247" blue="0.5690000057220459" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
