@@ -7,19 +7,39 @@
 
 import UIKit
 import RxCocoa
-
+import RxSwift
 class HomeViewModel: BaseViewModel {
     var currentDate: Date
-    init(currentDate: Date) {
-        self.currentDate = currentDate
-        listDatesOfWeek = BehaviorRelay<[DateWork]>(value: currentDate.getAllDaysOfTheCurrentWeek())
-    }
-    let listDatesOfWeek: BehaviorRelay<[DateWork]>
+   
+    let viewIsReady = PublishRelay<Void>()
+    let getWorkoutsTrigger = PublishRelay<Void>()
+    
+    var listDatesOfWeek: BehaviorRelay<[DateWork]>
     let listAssignmentSelected = BehaviorRelay<[String]>(value: [])
     
     let updateDateIndex = PublishRelay<Int>()
     
     private let calendarService = CalendarService()
+    
+    init(currentDate: Date) {
+        self.currentDate = currentDate
+        listDatesOfWeek = BehaviorRelay<[DateWork]>(value: currentDate.getAllDaysOfTheCurrentWeek())
+        super.init()
+        setupBinding()
+    }
+    
+    
+    private func setupBinding() {
+        let requestTrigger = Observable.merge(
+            viewIsReady.asObservable(),
+            getWorkoutsTrigger.asObservable())
+        
+        requestTrigger
+            .subscribe(
+                onNext: { [unowned self] _ in
+                    getWorkouts()
+                }).disposed(by: dispose)
+    }
     
     func getWorkouts() {
         calendarService.getWorkouts() { [weak self] result in

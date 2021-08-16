@@ -11,20 +11,22 @@ class HomeViewController: BaseViewController {
 
     @IBOutlet weak var tableView: SelfResizeTableView!
     var viewModel = HomeViewModel(currentDate: Date())
-    
+    var refreshControl = UIRefreshControl()
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.viewIsReady.accept(())
         configTableView()
-        viewModel.getWorkouts()
         
         viewModel.errorMessage .subscribe(
             onNext: { [unowned self] error in
+                refreshControl.endRefreshing()
                 showAlert(title: "Error", message: error)
             }).disposed(by: dispose)
         
         viewModel.listDatesOfWeek
             .subscribe(
                 onNext: { [unowned self] list in
+                    refreshControl.endRefreshing()
                     tableView.reloadData()
                 }).disposed(by: dispose)
         
@@ -33,6 +35,11 @@ class HomeViewController: BaseViewController {
                 onNext: { [unowned self] index in
                     tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .none)
                 }).disposed(by: dispose)
+        
+        refreshControl.rx.controlEvent(.valueChanged)
+            .bind(to: viewModel.getWorkoutsTrigger)
+            .disposed(by: dispose)
+        
     }
     
     func configTableView() {
@@ -40,7 +47,12 @@ class HomeViewController: BaseViewController {
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0,
                                                      bottom: 0,
                                                      right: 0)
+        tableView.refreshControl = refreshControl
         tableView.rowHeight = UITableView.automaticDimension
+    }
+    
+    @objc func reloadData() {
+        viewModel.getWorkouts()
     }
 }
 

@@ -7,7 +7,9 @@
 
 import Foundation
 import RxCocoa
+import RxSwift
 
 class BaseViewModel {
+    let dispose = DisposeBag()
     let errorMessage = PublishRelay<String>()
 }

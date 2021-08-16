@@ -23,9 +23,14 @@ extension ApiManager {
         } else {
             encoding = URLEncoding.default
         }
-        if let request = try? URLRequest(url: target.path, method: target.method, headers: target.headers), let cacheResponse = session.sessionConfiguration.urlCache?.cachedResponse(for: request) {
-            handleData(data: cacheResponse.data, completion: completion)
+        
+        if target.preloadCache {
+            if let request = try? URLRequest(url: target.path, method: target.method, headers: target.headers), let cacheResponse = session.sessionConfiguration.urlCache?.cachedResponse(for: request) {
+                handleData(data: cacheResponse.data, completion: completion)
+            }
         }
+        
+        
         
         
         session.request(target.path, method: target.method, parameters: target.params, encoding: encoding, headers: target.headers)

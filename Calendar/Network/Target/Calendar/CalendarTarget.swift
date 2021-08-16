@@ -13,6 +13,12 @@ enum CalendarTarget {
 }
 
 extension CalendarTarget: Target {
+    var preloadCache: Bool {
+        switch self {
+        case .getWorkouts: return true
+        }
+    }
+    
     var path: String {
         switch self {
         case .getWorkouts: return ApiPath.apiDomain / "workouts"

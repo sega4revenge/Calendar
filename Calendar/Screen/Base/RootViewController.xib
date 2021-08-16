@@ -4,16 +4,10 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="YOONGOTHIC730.TTF">
-            <string>YoonGothic730</string>
-        </array>
-    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RootViewController" customModule="Calendar" customModuleProvider="target">
             <connections>
@@ -25,26 +19,23 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="copyright©NINEWITH.all rights reserved" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gl3-sj-Tlf">
-                    <rect key="frame" x="117" y="838" width="180" height="12"/>
-                    <fontDescription key="fontDescription" name="YoonGothic730" family="YoonGothic 700" pointSize="10"/>
-                    <color key="textColor" name="textLight"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calendar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfY-wT-NeC">
+                    <rect key="frame" x="148.5" y="430" width="117.5" height="36"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                    <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Gl3-sj-Tlf" secondAttribute="bottom" constant="12" id="Hv8-I7-p0w"/>
-                <constraint firstItem="Gl3-sj-Tlf" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="vsc-YR-JSS"/>
+                <constraint firstItem="yfY-wT-NeC" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="0jR-m9-zz1"/>
+                <constraint firstItem="yfY-wT-NeC" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="WEL-69-eab"/>
             </constraints>
             <point key="canvasLocation" x="-14" y="60"/>
         </view>
     </objects>
     <resources>
-        <namedColor name="textLight">
-            <color red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -11,6 +11,7 @@ import Alamofire
 
 protocol Target {
     var path: String { get }
+    var preloadCache: Bool { get }
     var method: HTTPMethod { get }
     var params: Parameters? { get }
     var headers: HTTPHeaders { get }

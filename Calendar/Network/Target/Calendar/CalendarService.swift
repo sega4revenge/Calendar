@@ -9,7 +9,6 @@ import Foundation
 class CalendarService {
     func getWorkouts(completion: @escaping ApiCompletion<[DateWork]>) {
         let target = CalendarTarget.getWorkouts
-        
         ApiManager.shared.request(target: target, completion: completion)
     }
 }
