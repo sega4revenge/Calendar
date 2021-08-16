@@ -33,7 +33,9 @@ class HomeViewController: BaseViewController {
         viewModel.updateDateIndex
             .subscribe(
                 onNext: { [unowned self] index in
-                    tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .none)
+                    UIView.performWithoutAnimation({
+                            tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .none)
+                        })
                 }).disposed(by: dispose)
         
         refreshControl.rx.controlEvent(.valueChanged)
@@ -48,7 +50,7 @@ class HomeViewController: BaseViewController {
                                                      bottom: 0,
                                                      right: 0)
         tableView.refreshControl = refreshControl
-        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 111
     }
     
     @objc func reloadData() {
@@ -67,6 +69,15 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         cell.configDate(date: date, selectedAssigment: viewModel.listAssignmentSelected.value)
         cell.delegate = self
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let date = viewModel.listDatesOfWeek.value[indexPath.row]
+        if date.assignments.count <= 1 {
+            return 111
+        } else {
+            return UITableView.automaticDimension
+        }
     }
 }
 

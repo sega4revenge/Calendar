@@ -10,6 +10,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="OpenSans-Bold.ttf">
+            <string>OpenSans-Bold</string>
+        </array>
         <array key="OpenSans-Regular.ttf">
             <string>OpenSans-Regular</string>
         </array>
@@ -25,27 +28,40 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="B7x-gE-Zkp">
-                        <rect key="frame" x="19" y="20" width="496" height="234"/>
+                        <rect key="frame" x="19" y="15" width="496" height="244"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="c80-SR-y3w">
-                                <rect key="frame" x="0.0" y="0.0" width="40.5" height="43.5"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DN3-uD-rG1">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="81"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="MON" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bjE-Id-gdN">
-                                        <rect key="frame" x="0.0" y="0.0" width="40.5" height="16.5"/>
-                                        <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
-                                        <color key="textColor" name="7B7E91"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ows-U8-6u9">
-                                        <rect key="frame" x="0.0" y="21.5" width="40.5" height="22"/>
-                                        <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
-                                        <color key="textColor" name="1E0A3C"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="c80-SR-y3w">
+                                        <rect key="frame" x="0.0" y="20.5" width="50" height="40.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" text="MON" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bjE-Id-gdN">
+                                                <rect key="frame" x="0.0" y="0.0" width="50" height="16.5"/>
+                                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="12"/>
+                                                <color key="textColor" name="7B7E91"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ows-U8-6u9">
+                                                <rect key="frame" x="0.0" y="18.5" width="50" height="22"/>
+                                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
+                                                <color key="textColor" name="1E0A3C"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
-                            </stackView>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="c80-SR-y3w" secondAttribute="trailing" id="1FD-Tw-FIa"/>
+                                    <constraint firstAttribute="height" constant="81" id="JeT-iW-FgH"/>
+                                    <constraint firstItem="c80-SR-y3w" firstAttribute="leading" secondItem="DN3-uD-rG1" secondAttribute="leading" id="KXP-3s-Dgs"/>
+                                    <constraint firstItem="c80-SR-y3w" firstAttribute="leading" secondItem="DN3-uD-rG1" secondAttribute="leading" id="OJW-hP-EG5"/>
+                                    <constraint firstItem="c80-SR-y3w" firstAttribute="centerY" secondItem="DN3-uD-rG1" secondAttribute="centerY" id="Yna-Su-37Q"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="A1P-ut-JuB" customClass="SelfResizeTableView" customModule="Calendar" customModuleProvider="target">
-                                <rect key="frame" x="56.5" y="0.0" width="439.5" height="234"/>
+                                <rect key="frame" x="66" y="0.0" width="430" height="244"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="-1" id="hJo-4n-i5a"/>
@@ -55,7 +71,6 @@
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="A1P-ut-JuB" secondAttribute="bottom" id="Pa2-m1-hdQ"/>
-                            <constraint firstItem="c80-SR-y3w" firstAttribute="leading" secondItem="B7x-gE-Zkp" secondAttribute="leading" id="hZM-Vh-C21"/>
                         </constraints>
                     </stackView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wwc-uC-ApZ">
@@ -68,8 +83,8 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="Wwc-uC-ApZ" secondAttribute="bottom" id="7Qj-DJ-ali"/>
-                    <constraint firstAttribute="bottom" secondItem="B7x-gE-Zkp" secondAttribute="bottom" constant="20" id="CEL-QE-5ax"/>
-                    <constraint firstItem="B7x-gE-Zkp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="Ehk-1m-TWV"/>
+                    <constraint firstAttribute="bottom" secondItem="B7x-gE-Zkp" secondAttribute="bottom" constant="15" id="CEL-QE-5ax"/>
+                    <constraint firstItem="B7x-gE-Zkp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="Ehk-1m-TWV"/>
                     <constraint firstItem="B7x-gE-Zkp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="19" id="JCB-ST-iND"/>
                     <constraint firstAttribute="trailing" secondItem="Wwc-uC-ApZ" secondAttribute="trailing" id="JwM-XO-Vfx"/>
                     <constraint firstAttribute="trailing" secondItem="B7x-gE-Zkp" secondAttribute="trailing" constant="21" id="WaA-pH-rko"/>
